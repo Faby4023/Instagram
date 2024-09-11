@@ -3,6 +3,9 @@
   margin: 0px;
   box-sizing: border-box;
 }
+body {
+  font-family: "Roboto", sans-serif;
+}
 
 .post-container {
   width: 300px;
@@ -17,14 +20,31 @@
   margin: auto;
   margin-top: 20px;
 }
+.post-header {
+  margin-top: 20px;
+  margin-left: 8px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: space-between;
+}
 
-.post-image {
-  width: 320px;
-  height: 240px;
-  border-radius: 15px;
-  justify-content: center;
+.post-header .left {
+  display: flex;
+  gap:10px;
   align-items: center;
-  margin: auto;
+}
+.post-header .left>div {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.post-header .left>div>img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover
 }
 
 .post-image img {
@@ -33,14 +53,6 @@
   margin: auto;
   align-items: center;
   border: solid white;
-}
-
-.post-header {
-  margin-top: 20px;
-  margin-left: 8px;
-  margin-right: 8px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .post-header .left {
@@ -52,7 +64,7 @@
 .post-header .left>div {
   width: 40px;
   height: 40px;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 50%;
 }
 
@@ -83,4 +95,16 @@
   margin-right: 8px;
   background-color: rgb(3, 3, 183);
   border-radius: 4px;
+}
+.post-icons {
+  font-size: 24px;
+  display:flex;
+  gap: 10px;
+  cursor: pointer;
+}
+.btn {
+  cursor: pointer;
+}
+.liked {
+  color: red;
 }
