@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .post-container {
@@ -15,8 +15,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: rgb(40, 40, 40);
-  color: white;
+  background-color: white;
+  color: black;
   margin: auto;
   margin-top: 20px;
 }
@@ -48,11 +48,12 @@ body {
 }
 
 .post-image img {
-  width: 299px;
+  width: 280px;
   height: 265px;
+  padding: 5px;
   margin: auto;
   align-items: center;
-  border: solid white;
+  border: solid black;
 }
 
 .post-header .left {
@@ -72,6 +73,7 @@ body {
   font-size: 24px;
   margin-bottom: 15px;
   margin-left: 5px;
+  
 }
 
 .post-likes{
@@ -93,14 +95,14 @@ body {
 
 .right{
   margin-right: 8px;
-  background-color: rgb(3, 3, 183);
   border-radius: 4px;
 }
 .post-icons {
-  font-size: 24px;
+  font-size: 20px;
   display:flex;
   gap: 10px;
   cursor: pointer;
+  
 }
 .btn {
   cursor: pointer;
