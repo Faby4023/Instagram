@@ -1,5 +1,5 @@
-import {v4 as randomUUID} from "uuid"
-import{ faker } from "@faker-js/faker";
+import { v4 as randomUUID } from "uuid"
+import { faker } from "@faker-js/faker";
 
 class Post {
   private _id: string;
@@ -17,8 +17,7 @@ class Post {
     imageUrl: string,
     avatarUrl: string,
     description: string
-  )
-   {
+  ) {
     this._userName = userName;
     this._imageUrl = imageUrl;
     this._description = description;
@@ -29,16 +28,27 @@ class Post {
   like() {
     const post = document.getElementById(this._id);
     const btnLike = post?.querySelector(".btn-like");
+    const icon = btnLike?.children[0];
 
-    if (!btnLike) return;
+    if (!icon) return;
+
+    if (this._isLiked) {
+      icon.classList.remove("fa-heart");
+      icon.classList.remove("liked");
+      icon.classList.add("fa-heart-o");
+
+      this._numberOfLikes + - 1;
+
+    } else {
+      icon.classList.remove("fa-heart-o");
+      icon.classList.remove("fa-heart");
+      icon.classList.add("liked");
+
+      this._numberOfLikes -= 1;
+    }
 
     this._isLiked = !this._isLiked;
 
-    if (this._isLiked === true){
-      this._numberOfLikes++;
-    } else {
-      this._numberOfLikes--;
-    }
   }
 
   toHTML() {
@@ -69,55 +79,50 @@ class Post {
 
     const postIcons = `
       <div class="post-icons">
-        <div class="btn btn-like">
-          <i class="fa fa-heart-o"></i>
-          <!-- <i class="fa fa-heart liked"></i> -->
-        </div>
-        <div class="btn">
-          <i class="fa fa-comment-o"></i>
-        </div>
-        <div class="btn">
+       <div>
+         <div id="btn-like">
+           <i class="fa fa-heart-o"></i>
+          </div>
+
+          <div>
+            <i class="fa fa-comment-o"></i> 
+          </div>
+
+          <div>
+            <div class="btn">
+          </div>
+
+          <div>
           <i class="fa fa-paper-plane-o"></i>
+          </div>
         </div>
-      </div>
+          <i class="fa fa-bookmark-o"></i>
+        </div>
     `;
 
     postContainer.innerHTML = postHeader;
     postContainer.innerHTML += postImage;
     postContainer.innerHTML += postIcons;
 
-    postContainer
-      .querySelector(".btn-like")
-      ?.addEventListener("click", () => this.like());
+    const btnLiked = postContainer.querySelector("#btn-like");
+    btnLike?.addEventListener("click", () => this.like());
 
     document.body.appendChild(postContainer);
   }
 }
 
-const posts: Post[] = [];
+for (let index = 0; index < 15; index++) {
+  const userName = faker.person.firstName();
+  const avatarUrl = faker.image.avatarGitHub();
+  const imageUrl = faker.image.urlLoremFlickr();
+  const description = faker.lorem.paragraph();
 
-for (let index = 0; index < 15; index++){
-  const post = new Post(
-   faker.person.firstName(),
-   faker.image.avatarGitHub(),
-   faker.image.urlPicsumPhotos(),
-   faker.lorem.paragraph()
-  )
-  posts.push(post);
+  const post = new Post(userName, avatarUrl, imageUrl, description);
+
+  post.toHTML();
 }
-const firstPost = posts[0];
 
-firstPost.like();
-console.log(firstPost);
-firstPost.like();
-console.log(firstPost);
 
-const userName = posts[0]["_userName"];
-console.log(userName);
-const profileName = document.getElementById("profileName");
-if (profileName){
-  profileName.innerHTML  = userName;
-}
 
 
 

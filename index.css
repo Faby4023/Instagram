@@ -20,6 +20,12 @@ body {
   margin: auto;
   margin-top: 20px;
 }
+
+.post-header span{
+text-align: left;
+margin-left: -99px;
+margin-top: 7px;
+}
 .post-header {
   margin-top: 20px;
   margin-left: 8px;
@@ -31,7 +37,7 @@ body {
 .post-header .left {
   display: flex;
   gap:10px;
-  align-items: center;
+  align-items: left;
 }
 .post-header .left>div {
   width: 40px;
@@ -54,12 +60,13 @@ body {
   margin: auto;
   align-items: center;
   border: solid black;
+  margin-left: 8.5px;
 }
 
 .post-header .left {
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: left;
 }
 
 .post-header .left>div {
@@ -73,7 +80,17 @@ body {
   font-size: 24px;
   margin-bottom: 15px;
   margin-left: 5px;
+  display: inline-block;
   
+}
+
+.btn{
+  display: inline-block;
+
+}
+.btn2{
+  display: inline-block;
+  margin-bottom: 15px;
 }
 
 .post-likes{
@@ -106,6 +123,9 @@ body {
 .btn {
   cursor: pointer;
 }
-.liked {
+.liked  {
+  color: red;
+}
+.btn-like :hover{
   color: red;
 }
